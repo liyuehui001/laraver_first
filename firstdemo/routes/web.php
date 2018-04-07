@@ -46,6 +46,8 @@ Route::post('/save_record','SearchRecordController@storeRecord');
 Route::get('get_record_list/{userid}','SearchRecordController@getRecordList');
 
 //4, 根据用户的请求返回相应的潮汐数据
+Route::get('getDataFromChinaHaishiNet/{portid}/{date}','GetDataFromNetController@getDataFromNet');
+
 
 Route::get('hello',function(){
 	return "hello laravel";
