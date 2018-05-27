@@ -94,6 +94,46 @@
                         <input name="seatchDate" type='text' />
                         <input value="提交" type='submit'/>
                     </form>
+                    <form method='post' action='http://192.168.2.1:8000/login'>
+                        <input name="name" type='text' />
+                        <input name="password" type='text' />
+                        <input value="提交" type='submit'/>
+                    </form>
+                    <form method='post' action='http://192.168.2.1:8000/getOutPortList'>
+                        <input value="提交" type='submit'/>
+                    </form>
+
+                    <form method='post' action='http://192.168.2.1:8000/getPortByProvince'>
+                        <input value="提交" type='submit'/>
+                    </form>
+                    <!-- http://192.168.2.1:8000/getDataFromChinaHaishiNet/%E4%B8%B9%E4%B8%9C/2018-04-17 -->
+                    <form method='post' action='http://10.240.50.232:8000/getDataFromChinaHaishiNet'>
+                        <input name="portname" type='text' />
+                        <input name="date" type='text' />
+                        <input value="提交" type='submit'/>
+                    </form>
+                    <form method='post' action='http://10.240.50.232:8000/getDateFromJingWeiDu'>
+                        <input name="address" type='text' />
+                        <input value="提交经纬度" type='submit'/>
+                    </form>
+
+                    <form method='post' action='http://172.20.10.5:8000/getCircleTypeList'>
+                        <input value="提交" type='submit'/>
+                    </form>
+
+                    <form method='post' action='http://localhost:8000/uploadMuliFile' enctype="multipart/form-data">
+                        <input type="text" name="circle_id"/> <br/>
+                        <input type='file' multiple="multiple" name="upload[]"/>
+                        <input value="上传文件" type='submit'/>
+                    </form>
+
+                    <form method='post' action='http://localhost:8000/addCircleFriendItem' enctype="multipart/form-data">
+                        <input type="text" name="userid"/> <br/>
+                        <input type="text" name="content"/> <br/>
+                        type: </type:><input type="text" name="type"/> <br/>
+                        <input type="text" name="circle_type_id"/> <br/>
+                        <input value="上传文件" type='submit'/>
+                    </form>
                 </div>
 
                 <div class="links">

@@ -15,19 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 //登录，
-Route::get('/login','UserController@login');
+Route::post('/login','UserController@login');
 //注册
 Route::post('/register','UserController@register');
 
 Route::get('/getStateList','GetListController@getStateList');
 
-Route::get('/getCountryList/{StateName}','GetListController@getCountryList');
 
-Route::get('getProvinceList','GetListController@getProvinceList');
-Route::get('getPortList/{StateName}/{CountryName}','GetListController@getPortList');
+Route::post('/getOutPortList','GetListController@getPortList');
 
-Route::get('getPortByProvince/{cityName}','GetListController@getPortByProvince');
+Route::post('/getPortByProvince','GetListController@getPortByProvince');
 
+Route::post('/upload','GetListController@uploadFile');
 
 //1，获取洲，国家，城市，港口列表。
 /*
@@ -43,11 +42,11 @@ Route::post('/save_record','SearchRecordController@storeRecord');
 //2，根据港口以及日期返回潮汐数据列表，判断用户是否登录，若登录则，将数据记录到历史记录的表中
 
 //3. 用户查询时 。获取历史记录列表
-Route::get('get_record_list/{userid}','SearchRecordController@getRecordList');
+Route::get('/get_record_list/{userid}','SearchRecordController@getRecordList');
 
 //4, 根据用户的请求返回相应的潮汐数据
-Route::get('getDataFromChinaHaishiNet/{portid}/{date}','GetDataFromNetController@getDataFromNet');
-
+Route::post('/getDataFromChinaHaishiNet','GetDataFromNetController@getDataFromNet');
+Route::post('/getDateFromJingWeiDu','GetDataFromNetController@getdatafrombaidu');
 
 Route::get('hello',function(){
 	return "hello laravel";
@@ -79,3 +78,12 @@ Route::get('user3/{id}', function ($name) {
 })->where('id', '[0-9]+');
 
 
+//新增朋友圈的路由
+//1 获取所有的circle——type
+Route::post('/getCircleTypeList','CircleTypeController@getCircleTypeList');
+
+//2添加单个朋友圈数据
+Route::post('/addCircleFriendItem','CircleFriendController@addFriendCricle');
+
+//3上传多个文件
+Route::post('/uploadMuliFile','FileUploadController@myupload');

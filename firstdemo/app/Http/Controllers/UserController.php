@@ -30,7 +30,17 @@ class UserController extends Controller
         $name = $request->input('name');
         $password = $request->input('password');
         $result = Users::where('name',$name)->where('password',$password)->first();
-        return "ip-".$result->ip."-id-".$result->id;
+        if ($result == null) {
+            $arr = array();
+            $arr['resultCode'] = "0";
+            $arr['message'] = '没有这个用户';
+            return json_encode($arr);
+        }else{
+            $result['resultCode'] = '1';
+            $result['message'] = "有这个用户";
+            return json_encode($result);
+        }
+        
 
     }
 }

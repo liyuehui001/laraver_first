@@ -14,6 +14,14 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     	'register',
-    	'save_record'
+    	'save_record',
+        'login',
+        'getOutPortList',
+        'getPortByProvince',
+        'getDataFromChinaHaishiNet',
+        'getCircleTypeList',
+        'addCircleFriendItem',
+        'uploadMuliFile',
+        'getDateFromJingWeiDu'
     ];
 }
